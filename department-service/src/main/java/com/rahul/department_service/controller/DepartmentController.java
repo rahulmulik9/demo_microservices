@@ -19,7 +19,7 @@ public class DepartmentController {
 
     @PostMapping
     public Department add(@RequestBody Department theDepartment){
-        LOGGER.info("Department added", theDepartment);
+        LOGGER.info("Department added : {}", theDepartment);
         return departmentRepository.addDepartment(theDepartment);
     }
 
@@ -31,7 +31,7 @@ public class DepartmentController {
 
     @GetMapping
     public Department findById(@PathVariable Long id){
-        LOGGER.info("Department found", id);
+        LOGGER.info("Department found: {}", id);
         return departmentRepository.findById(id);
     }
 
