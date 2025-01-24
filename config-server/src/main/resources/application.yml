@@ -8,5 +8,6 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/config # Points to the folder inside src/main/resources
+        git:
+          uri: file:///D:\Ddrvive\Coding\demo_microservice\Config_server_Config
+
