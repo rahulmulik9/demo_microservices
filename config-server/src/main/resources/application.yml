@@ -1,11 +1,12 @@
-spring:
-  application:
-  name: config-server
-  profile:
-    active: native
-
 server:
   port: 8088
 
+spring:
+  profiles:
+    active: native
 
-
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config # Points to the folder inside src/main/resources
