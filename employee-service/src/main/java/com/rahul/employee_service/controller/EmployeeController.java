@@ -36,7 +36,7 @@ public class EmployeeController {
     }
 
 
-    @GetMapping("/departmnet/{id}")
+    @GetMapping("/department/{id}")
     public Employee findByDepId(@PathVariable Long id){
         LOGGER.info("Employee found: {}", id);
         return employeeRepo.findByDeptId(id);
