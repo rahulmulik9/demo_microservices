@@ -29,7 +29,7 @@ public class DepartmentController {
         return departmentRepository.findAll();
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public Department findById(@PathVariable Long id){
         LOGGER.info("Department found: {}", id);
         return departmentRepository.findById(id);
