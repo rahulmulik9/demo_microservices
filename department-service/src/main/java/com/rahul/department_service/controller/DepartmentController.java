@@ -1,5 +1,6 @@
 package com.rahul.department_service.controller;
 
+import com.rahul.department_service.client.EmployeeClient;
 import com.rahul.department_service.model.Department;
 import com.rahul.department_service.repository.DepartmentRepository;
 import org.slf4j.Logger;
@@ -14,6 +15,9 @@ import java.util.List;
 public class DepartmentController {
     @Autowired
     private DepartmentRepository departmentRepository;
+
+    @Autowired
+    private EmployeeClient employeeClient;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
 
