@@ -27,10 +27,9 @@ public class EmployeeRepository {
 
     public List<Employee> findAll(){return employees;}
 
-    public Employee findByDeptId(Long id){
+    public List<Employee> findByDepartment(Long id){
         return employees.stream()
                 .filter(employee -> employee.departmentId().equals(id))
-                .findFirst()
-                .orElseThrow();
+                .toList();
     }
 }
