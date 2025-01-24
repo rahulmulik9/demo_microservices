@@ -22,21 +22,30 @@ public class DepartmentController {
     private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
 
     @PostMapping
-    public Department add(@RequestBody Department theDepartment){
+    public Department add(@RequestBody Department theDepartment) {
         LOGGER.info("Department added : {}", theDepartment);
         return departmentRepository.addDepartment(theDepartment);
     }
 
     @GetMapping
-    public List<Department> findAll(){
+    public List<Department> findAll() {
         LOGGER.info("Department get all");
         return departmentRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Department findById(@PathVariable Long id){
+    public Department findById(@PathVariable Long id) {
         LOGGER.info("Department found: {}", id);
         return departmentRepository.findById(id);
+    }
+
+    @GetMapping("/withEmps")
+    public List<Department> findFromEmployee() {
+        LOGGER.info("Department get all");
+        List<Department> departments = departmentRepository.findAll();
+        departments.forEach(department ->
+                department.setEmployees(employeeClient.findByDepartment(department.getId())));
+        return departmentRepository.findAll();
     }
 
 }
